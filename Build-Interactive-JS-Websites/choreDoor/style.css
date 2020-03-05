@@ -1,0 +1,82 @@
+body {
+  background-color: #010165;
+  margin: 0px;
+}
+
+/* Step 21 */
+.header{
+  background-color: #00ffff;
+  text-align: center;
+}
+
+/* Step: 23 */
+.title-row{
+    margin-top: 42px;
+    margin-bottom: 21px;
+    text-align: center
+}
+
+/* Step 25, 26 */
+.instructions-title{
+  display: inline;
+  font-size: 18px;
+	color: #00ffff;
+	font-family: ‘Work Sans’;
+}
+
+/* Step 31: */
+.instructions-row{
+    margin: 0 auto;
+    width: 400px;
+}
+
+/* Step 32: */
+.instructions-number{
+    padding-right: 25px;
+    font-family: ‘Work Sans’;
+    font-size: 36px;
+    color: #00ffff;
+}
+
+/* Step 33 */
+.instructions-text{
+    padding: 10px;
+    font-family: ‘Work Sans’;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* Step 34 */
+.door-row{
+  text-align: center;
+}
+
+/* 
+// 14: Delete the id door1
+#door1{cursor: pointer;} // Step 5
+
+*/
+
+/* Step 13 */
+.door-frame {
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Step 32: */
+.start-row{
+    margin: auto;
+    width: 120px;
+    height: 43px;
+    font-family: ‘Work Sans’;
+    background-color: #eb6536;
+    padding-top: 18px;
+    font-size: 18px;
+    text-align: center;
+    color: #010165;
+    margin-bottom: 21px;
+    cursor: pointer;
+
+}
+
+
