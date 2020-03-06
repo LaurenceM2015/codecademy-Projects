@@ -9,5 +9,8 @@
         <h3>ACT Like a Game! - Part I</h3>
         <p>Designing the feel and the look of the game, with basic functionalities.</p>
     </div>
+    <div> 
+        <h3>ACT Game! - Part 2 <span>Building the game winner condition</span></h3>
+    </div>
 </section>
 

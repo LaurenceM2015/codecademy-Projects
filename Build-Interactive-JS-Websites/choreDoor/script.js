@@ -1,11 +1,12 @@
 
-let numCloseDoors = 3;
-let openDoor1;
-let openDoor2;
-let openDoor3;
+
 let doorImage1 = document.getElementById('door1');
 let doorImage2 = document.getElementById('door2');
 let doorImage3 = document.getElementById('door3');
+let startButton = document.getElementById('start'); // Task 54:
+
+// Task 51:
+let closedDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg"
 
 let botDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/robot.svg"
 
@@ -13,11 +14,34 @@ let beachDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-
 
 let spaceDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/space.svg"
 
+let numClosedDoors = 3;
+let openDoor1;
+let openDoor2;
+let openDoor3;
 
+// ACT Game Part 2: Building a Winner.
+
+// Task 50:
+const isClicked = (door) => {
+  if(door.src === closedDoorPath){
+    return false;
+  } else {
+    return true;
+  }
+}
+
+
+// Task 46, 47, 49
+const playDoor = (door) => {
+  numClosedDoors--;
+  if (numClosedDoors === 0){
+     gameOver('win'); 
+  }
+}
 
 // Task 38: 
 const randomChoreDoorGenerator = () => {
-  let choreDoor = Math.floor(Math.random() * numCloseDoors);
+  let choreDoor = Math.floor(Math.random() * numClosedDoors);
   if (choreDoor === 0){
     openDoor1 = botDoorPath;
     openDoor2 = beachDoorPath;
@@ -36,9 +60,34 @@ const randomChoreDoorGenerator = () => {
   
 }
 
-door1.onclick = () => {doorImage1.src= openDoor1;}
 
-door2.onclick = () =>{ doorImage2.src= openDoor2;};
-door3.onclick = () =>{doorImage3.src= openDoor3;};
+door1.onclick = () => {
+  if(!isClicked(doorImage1)) {
+    doorImage1.src= openDoor1; 
+    playDoor();
+  }
+}
+
+door2.onclick = () =>{
+  if(!isClicked(doorImage2)) {
+    doorImage2.src= openDoor2; 
+    playDoor();
+  }
+}
+
+door3.onclick = () =>{
+  if(!isClicked(doorImage3)) {
+    doorImage3.src= openDoor3; 
+    playDoor();
+  }
+}
+
+// Task 54: Game Over function
+const gameOver = (status) => {
+  if(status === 'win'){
+    startButton.innerHTML = 'You win! Play again?';
+  }
+}
 
 randomChoreDoorGenerator();
+
