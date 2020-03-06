@@ -13,7 +13,7 @@ let botDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-do
 let beachDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/beach.svg"
 
 let spaceDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/space.svg"
-
+let currentlyPlaying = true;
 let numClosedDoors = 3;
 let openDoor1;
 let openDoor2;
@@ -36,7 +36,9 @@ const playDoor = (door) => {
   numClosedDoors--;
   if (numClosedDoors === 0){
      gameOver('win'); 
-  }
+  } else if (isBot(door)) {
+    gameOver('lose');
+  } 
 }
 
 // Task 38: 
@@ -60,34 +62,66 @@ const randomChoreDoorGenerator = () => {
   
 }
 
+// ACT Game Part 3: Building a loser
+// Task 58:
+const isBot = (door) => {
+  if(door.src === botDoorPath){
+    return true;
+  } else {
+    return false;
+  }
+}
+
 
 door1.onclick = () => {
-  if(!isClicked(doorImage1)) {
+  if(currentlyPlaying && !isClicked(doorImage1)) {
     doorImage1.src= openDoor1; 
-    playDoor();
+    playDoor(door1);
   }
 }
 
 door2.onclick = () =>{
-  if(!isClicked(doorImage2)) {
+  if(currentlyPlaying && !isClicked(doorImage2)) {
     doorImage2.src= openDoor2; 
-    playDoor();
+    playDoor(door2);
   }
 }
 
 door3.onclick = () =>{
-  if(!isClicked(doorImage3)) {
+  if(currentlyPlaying && !isClicked(doorImage3)) {
     doorImage3.src= openDoor3; 
-    playDoor();
+    playDoor(door3);
   }
+}
+
+startButton.onclick = () => {
+  if(!currentlyPlaying) {
+    startRound();
+  }
+}
+
+
+const startRound = () => {
+  door1.src = closedDoorPath;
+  door2.src = closedDoorPath;
+  door3.src = closedDoorPath;
+  numClosedDoors = 3;
+  startButton.innerHTML = "Good Luck";
+   randomChoreDoorGenerator();
+  
 }
 
 // Task 54: Game Over function
 const gameOver = (status) => {
   if(status === 'win'){
     startButton.innerHTML = 'You win! Play again?';
+  } else {
+    startButton.innerHTML = 'Game over! Play again?'
   }
+  
+  currentlyPlaying = false;
 }
 
-randomChoreDoorGenerator();
+
+startRound()
 
