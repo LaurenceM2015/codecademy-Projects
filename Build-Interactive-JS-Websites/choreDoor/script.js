@@ -105,6 +105,7 @@ const startRound = () => {
   door1.src = closedDoorPath;
   door2.src = closedDoorPath;
   door3.src = closedDoorPath;
+  currentlyPlaying = true; // Fixed the error, reset the game after the first round.
   numClosedDoors = 3;
   startButton.innerHTML = "Good Luck";
    randomChoreDoorGenerator();

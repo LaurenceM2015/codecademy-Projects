@@ -11,6 +11,9 @@
     </div>
     <div> 
         <h3>ACT Game! - Part 2 <span>Building the game winner condition</span></h3>
+        <h3>ACT Game! - part 3 <span>Building the game loser condition</span><h3>
+        <!--<p>Game not reseting after the first round.<p> 
+        <p>Fixed the reset problem, now can reset the game after the first round.</p> -->
     </div>
 </section>
 
