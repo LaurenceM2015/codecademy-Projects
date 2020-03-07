@@ -15,5 +15,6 @@
         <!--<p>Game not reseting after the first round.<p> 
         <p>Fixed the reset problem, now can reset the game after the first round.</p> -->
     </div>
+    <span>Play or Visit this simple game here <a href="https://codepen.io/melonas13/pen/BaNmmgb">Chore Door</a></span>
 </section>
 
